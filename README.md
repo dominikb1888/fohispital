@@ -58,3 +58,64 @@ What could be improved:
     - Our code has some areas with duplications or lacks extensibility
     - No 'real' user interface
 
+## 2. FHIR Validation in depth
+
+### 2.1. Create a generic FHIR Validator
+
+What about accepting any valid FHIR resource after testing it on upload? How might we implement that?
+
+'''
+
+    from fhir.resources import construct_fhir_element
+
+    construct_fhir_element(resource["resourceType"], resource)
+
+'''
+
+Test it with resource from hapi.fhir.org
+
+### Dockerize your Backend
+
+Since we started out using a requirements.txt file the next steps should be easy. Create a file called "Dockerfile" in the root of your project and put these contents:
+
+
+'''
+
+#
+FROM python:3.10-slim
+
+#
+WORKDIR /code
+
+#
+COPY ./requirements.txt /code/requirements.txt
+
+#
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+#
+COPY ./app /code/app
+
+#
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+
+'''
+
+Then run:
+
+'''
+
+    docker build -t backend .
+
+'''
+
+Then start your container with:
+
+
+'''
+
+docker run -d --name fhir_backend -p 80:80 backend
+
+'''
+
+Navigate your browser to 'localhost' and you should see the entry message of our service. More info via: https://fastapi.tiangolo.com/deployment/docker/
