@@ -119,3 +119,20 @@ docker run -d --name fhir_backend -p 80:80 backend
 '''
 
 Navigate your browser to 'localhost' and you should see the entry message of our service. More info via: https://fastapi.tiangolo.com/deployment/docker/
+
+
+## 3. Postgres Persistence
+
+One major flaw of our system ist the lack of proper persistence, i.e. storage of data outside of memory. Currently, we use file which are easy to use and share. However, this approach is only sensible as long as the amount of interactions with the data and especiallu update operations is low. In addition, if you wanted to update only one field it would mean a complete loading of the file and then exchanging of the value based on its dictionary key. This might be ok for one operation, but absolutely inefficient for large numbers of edits.
+
+Databases are great tools to persist data an efficient and extensible way. There are many types of database systems and approaches to modeling data for them. Which one is right for FHIR?
+
+### 3.1. Document vs. Relational Databases
+
+### 3.2. Postsgres BJSON as middleground
+
+### 3.3 CRUD operations in Fastapi with SQLMODEL and Postgres BJSON
+
+### 3.4 Dockerizing the database
+
+### Synthesis
