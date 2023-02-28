@@ -2,12 +2,13 @@
 
 let
   pythonEnv = with pkgs.python310Packages; [
-    # Data Science Basics
+    # Backend
     ipython
     jupyter
     fastapi
     uvicorn
 
+    # FHIR
     (
     buildPythonPackage rec {
       pname = "fhir.resources";
@@ -24,6 +25,25 @@ let
     }
     )
 
+    # Database
+    sqlalchemy
+    psycopg2
+    # (
+    # buildPythonPackage rec {
+    #   pname = "sqlmodel";
+    #   version = "0.0.8";
+    #   src = fetchPypi {
+    #     inherit pname version;
+    #     sha256 = "3371b4d1ad59d2ffd0c530582c2140b6c06b090b32af9b9c6412986d7b117036";
+    #   };
+    #   doCheck = false;
+    #   propagatedBuildInputs = [
+    #       pydantic
+    #       sqlalchemy
+    #   ];
+    # }
+    # )
+    #
   ];
 
 in pkgs.mkShell {

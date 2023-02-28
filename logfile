@@ -1,0 +1,48 @@
+2023-02-27 22:47:26.736 PST [139536] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-02-27 22:47:26.736 PST [139536] LOG:  listening on IPv6 address "::1", port 5432
+2023-02-27 22:47:26.736 PST [139536] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-02-27 22:47:26.738 PST [139536] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
+2023-02-27 22:47:26.741 PST [139537] LOG:  database system was shut down at 2023-02-27 22:46:47 PST
+2023-02-27 22:47:26.745 PST [139536] LOG:  database system is ready to accept connections
+2023-02-27 22:48:43.328 PST [139590] FATAL:  lock file "postmaster.pid" already exists
+2023-02-27 22:48:43.328 PST [139590] HINT:  Is another postmaster (PID 139536) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-02-27 22:49:05.620 PST [139618] FATAL:  lock file "postmaster.pid" already exists
+2023-02-27 22:49:05.620 PST [139618] HINT:  Is another postmaster (PID 139536) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-02-27 22:49:47.584 PST [139536] LOG:  received fast shutdown request
+2023-02-27 22:49:47.585 PST [139536] LOG:  aborting any active transactions
+2023-02-27 22:49:47.587 PST [139536] LOG:  background worker "logical replication launcher" (PID 139543) exited with exit code 1
+2023-02-27 22:49:47.587 PST [139538] LOG:  shutting down
+2023-02-27 22:49:47.597 PST [139536] LOG:  database system is shut down
+2023-02-27 22:49:52.149 PST [139735] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-02-27 22:49:52.150 PST [139735] LOG:  listening on IPv6 address "::1", port 5432
+2023-02-27 22:49:52.150 PST [139735] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-02-27 22:49:52.151 PST [139735] FATAL:  could not create lock file "/run/postgresql/.s.PGSQL.5432.lock": No such file or directory
+2023-02-27 22:49:52.154 PST [139735] LOG:  database system is shut down
+2023-02-27 22:50:16.243 PST [139764] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-02-27 22:50:16.243 PST [139764] LOG:  listening on IPv6 address "::1", port 5432
+2023-02-27 22:50:16.243 PST [139764] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-02-27 22:50:16.245 PST [139764] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
+2023-02-27 22:50:16.248 PST [139765] LOG:  database system was shut down at 2023-02-27 22:49:47 PST
+2023-02-27 22:50:16.253 PST [139764] LOG:  database system is ready to accept connections
+2023-02-27 22:51:13.427 PST [139764] LOG:  received fast shutdown request
+2023-02-27 22:51:13.428 PST [139764] LOG:  aborting any active transactions
+2023-02-27 22:51:13.430 PST [139764] LOG:  background worker "logical replication launcher" (PID 139771) exited with exit code 1
+2023-02-27 22:51:13.430 PST [139766] LOG:  shutting down
+2023-02-27 22:51:13.442 PST [139764] LOG:  database system is shut down
+2023-02-27 22:51:27.546 PST [139876] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-02-27 22:51:27.546 PST [139876] LOG:  listening on IPv6 address "::1", port 5432
+2023-02-27 22:51:27.546 PST [139876] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-02-27 22:51:27.548 PST [139876] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
+2023-02-27 22:51:27.551 PST [139877] LOG:  database system was shut down at 2023-02-27 22:51:13 PST
+2023-02-27 22:51:27.555 PST [139876] LOG:  database system is ready to accept connections
+2023-02-27 22:55:32.073 PST [139876] LOG:  received fast shutdown request
+2023-02-27 22:55:32.074 PST [139876] LOG:  aborting any active transactions
+2023-02-27 22:55:32.076 PST [139876] LOG:  background worker "logical replication launcher" (PID 139883) exited with exit code 1
+2023-02-27 22:55:32.076 PST [139878] LOG:  shutting down
+2023-02-27 22:55:32.087 PST [139876] LOG:  database system is shut down
+2023-02-27 22:55:37.884 PST [139972] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-02-27 22:55:37.885 PST [139972] LOG:  listening on IPv6 address "::1", port 5432
+2023-02-27 22:55:37.885 PST [139972] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-02-27 22:55:37.887 PST [139972] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
+2023-02-27 22:55:37.890 PST [139973] LOG:  database system was shut down at 2023-02-27 22:55:32 PST
+2023-02-27 22:55:37.895 PST [139972] LOG:  database system is ready to accept connections

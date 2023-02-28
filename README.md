@@ -127,12 +127,116 @@ One major flaw of our system ist the lack of proper persistence, i.e. storage of
 
 Databases are great tools to persist data an efficient and extensible way. There are many types of database systems and approaches to modeling data for them. Which one is right for FHIR?
 
+
+
 ### 3.1. Document vs. Relational Databases
+
+
 
 ### 3.2. Postsgres BJSON as middleground
 
+
+1. Installing Postgres
+
+Simple solution running nix means adding postgresql to pkgs.mkShell:
+
+
+'''
+
+{ pkgs ? import <nixpkgs> {} }:
+
+let
+  pythonEnv = with pkgs.python310Packages; [
+    # Data Science Basics
+    ipython
+    jupyter
+    fastapi
+    uvicorn
+
+    (
+    buildPythonPackage rec {
+      pname = "fhir.resources";
+      version = "6.5.0";
+      src = fetchPypi {
+        inherit pname version;
+        sha256 = "1d02ff2547e5b6323543c8ce9916e0c9e5536847b3b2171acb1f51a86efba16e";
+      };
+      doCheck = false;
+      propagatedBuildInputs = [
+          pytest-runner
+          pydantic
+      ];
+    }
+    )
+
+  ];
+
+in pkgs.mkShell {
+  buildInputs = with pkgs; [
+    pythonEnv
+    postgresql
+    # keep this line if you use bash
+    pkgs.bashInteractive
+  ];
+}
+
+'''
+
+
+Using Docker means using a docker template. Just make sure to store a dump of the db locally before initial push.
+
+
+
+2. Setting up Postgres
+
+
+
+'''
+
+# Create a database with the data stored in the current directory
+initdb -D .tmp/db
+
+# Start PostgreSQL running as the current user
+# and with the Unix socket in the current directory
+pg_ctl -D .tmp/db -l logfile -o "--unix_socket_directories='$PWD'" start
+
+# Create a database
+createdb -h $PWD fohispital
+
+
+'''
+
+
+
+
+3. Using Postgres with Python
+
+Let's do it directly using ipython to see what we are getting :-)
+
+'''
+
+
+
+'''
+
+
+4. Using Postgres with FASTapi
+
+
+5. Using Postgress with SQLmodel and FHIR.resources in FASTapi
+
+
+
+
 ### 3.3 CRUD operations in Fastapi with SQLMODEL and Postgres BJSON
 
+Implementation of Patient Resource in Fastapi and Postgresql
+
+
+
 ### 3.4 Dockerizing the database
+
+In order to push this environment to a cloud service at some point we will create a Docker for Postgres and Docker Coompose file which orchstrates our container. At the moment this is only the database and our backend, later we will add a frontend and maybe more services like a load balancer or a cache.
+
 
 ### Synthesis
