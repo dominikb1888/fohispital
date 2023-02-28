@@ -1,1 +1,1 @@
-/nix/store/6bzm8955ggnp1nj7jp5a4mcch1p3y06x-postgresql-14.6/bin/postgres "-D" ".tmp/db" "--unix_socket_directories=/home/dominikb1888/fohispital"
+/nix/store/6bzm8955ggnp1nj7jp5a4mcch1p3y06x-postgresql-14.6/bin/postgres "--unix_socket_directories=/home/dominikb1888/fohispital"

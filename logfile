@@ -46,3 +46,40 @@
 2023-02-27 22:55:37.887 PST [139972] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
 2023-02-27 22:55:37.890 PST [139973] LOG:  database system was shut down at 2023-02-27 22:55:32 PST
 2023-02-27 22:55:37.895 PST [139972] LOG:  database system is ready to accept connections
+2023-02-28 01:16:55.550 PST [192934] FATAL:  lock file "postmaster.pid" already exists
+2023-02-28 01:16:55.550 PST [192934] HINT:  Is another postmaster (PID 139972) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-02-28 01:22:17.989 PST [193160] FATAL:  lock file "postmaster.pid" already exists
+2023-02-28 01:22:17.989 PST [193160] HINT:  Is another postmaster (PID 139972) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-02-28 01:22:21.502 PST [139972] LOG:  received fast shutdown request
+2023-02-28 01:22:21.503 PST [139972] LOG:  aborting any active transactions
+2023-02-28 01:22:21.505 PST [139972] LOG:  background worker "logical replication launcher" (PID 139979) exited with exit code 1
+2023-02-28 01:22:21.505 PST [139974] LOG:  shutting down
+2023-02-28 01:22:21.515 PST [139972] LOG:  database system is shut down
+2023-02-28 01:22:26.140 PST [193212] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-02-28 01:22:26.141 PST [193212] LOG:  listening on IPv6 address "::1", port 5432
+2023-02-28 01:22:26.141 PST [193212] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-02-28 01:22:26.143 PST [193212] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
+2023-02-28 01:22:26.147 PST [193213] LOG:  database system was shut down at 2023-02-28 01:22:21 PST
+2023-02-28 01:22:26.152 PST [193212] LOG:  database system is ready to accept connections
+2023-02-28 01:24:48.941 PST [193341] FATAL:  database ".tmp/db" does not exist
+2023-02-28 01:30:42.720 PST [193409] FATAL:  database ".tmp/db" does not exist
+2023-02-28 01:35:04.316 PST [193698] FATAL:  database ".tmp/db" does not exist
+2023-02-28 01:41:37.512 PST [193212] LOG:  received fast shutdown request
+2023-02-28 01:41:37.513 PST [193212] LOG:  aborting any active transactions
+2023-02-28 01:41:37.515 PST [193212] LOG:  background worker "logical replication launcher" (PID 193219) exited with exit code 1
+2023-02-28 01:41:37.515 PST [193214] LOG:  shutting down
+2023-02-28 01:41:37.526 PST [193212] LOG:  database system is shut down
+2023-02-28 01:41:37.657 PST [194612] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-02-28 01:41:37.658 PST [194612] LOG:  listening on IPv6 address "::1", port 5432
+2023-02-28 01:41:37.658 PST [194612] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-02-28 01:41:37.660 PST [194612] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
+2023-02-28 01:41:37.663 PST [194613] LOG:  database system was shut down at 2023-02-28 01:41:37 PST
+2023-02-28 01:41:37.668 PST [194612] LOG:  database system is ready to accept connections
+2023-02-28 01:42:41.992 PST [194661] FATAL:  database ".tmp/db" does not exist
+2023-02-28 01:47:28.762 PST [194683] FATAL:  database "db" does not exist
+2023-02-28 01:47:42.327 PST [194689] FATAL:  database ".tmp/db" does not exist
+2023-02-28 01:48:48.565 PST [194843] FATAL:  database ".tmp/db" does not exist
+2023-02-28 01:48:56.600 PST [194870] FATAL:  database "db" does not exist
+2023-02-28 01:51:08.940 PST [195290] FATAL:  database ".tmp/db" does not exist
+2023-02-28 01:51:31.919 PST [195321] ERROR:  database "fohispital" already exists
+2023-02-28 01:51:31.919 PST [195321] STATEMENT:  CREATE DATABASE fohispital;

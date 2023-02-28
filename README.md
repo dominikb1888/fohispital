@@ -214,11 +214,62 @@ createdb -h $PWD fohispital
 Let's do it directly using ipython to see what we are getting :-)
 
 '''
+from sqlalchemy import create_engine
 
+import os
+
+engine = create_engine(
+    f"postgresql://:@/fohispital?host={os.getcwd()}")
+
+engine.table_names()
 
 
 '''
 
+This should connect to a Postgres Instance on a local socket and return an empty list ('[]') as we did not create any tables so far. So, let's add a fake table to throw away later just to get some feel of using postgres in Python.
+
+
+'''
+# Import all Dependencies
+
+import sqlalchemy
+from sqlalchemy import Column, Integer, String
+from sqlalchemy import Table
+from sqlalchemy.orm import declarative_base
+
+
+# Define the Table as a Class
+Base = declarative_base
+
+class MyTable(Base):
+   __tablename__ = 'myTable'
+   time_id = Column(String(), primary_key=True)
+   customer_id = Column(String())
+   inventory_id = Column(String())
+
+   def toJSON(self):
+       json = {
+          "time_id":self.alert_id,
+          "customer_id":self.customer_id,
+          "inventory_id":self.inventory_id,
+      }
+      return json
+
+# Create the table
+Base.metadata.create_all(engine)
+
+# List tables in our DB
+engine.table_names()
+
+'''
+
+This will create the following output in ipython or the console:
+
+'''
+
+$> ['MyTable']
+
+'''
 
 4. Using Postgres with FASTapi
 
@@ -232,6 +283,7 @@ Let's do it directly using ipython to see what we are getting :-)
 
 Implementation of Patient Resource in Fastapi and Postgresql
 
+https://amercader.net/blog/beware-of-json-fields-in-sqlalchemy/
 
 
 ### 3.4 Dockerizing the database
