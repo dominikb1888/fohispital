@@ -83,3 +83,57 @@
 2023-02-28 01:51:08.940 PST [195290] FATAL:  database ".tmp/db" does not exist
 2023-02-28 01:51:31.919 PST [195321] ERROR:  database "fohispital" already exists
 2023-02-28 01:51:31.919 PST [195321] STATEMENT:  CREATE DATABASE fohispital;
+2023-02-28 05:38:17.069 PST [210137] FATAL:  database ".tmp/db" does not exist
+2023-02-28 05:38:27.123 PST [210187] FATAL:  database "dominikb1888" does not exist
+2023-02-28 05:39:46.778 PST [210225] ERROR:  relation "resources" does not exist at character 20
+2023-02-28 05:39:46.778 PST [210225] STATEMENT:  SELECT config FROM resources;
+2023-02-28 05:59:30.078 PST [194612] LOG:  received SIGHUP, reloading configuration files
+2023-02-28 05:59:30.079 PST [194612] LOG:  received smart shutdown request
+2023-02-28 05:59:30.085 PST [194612] LOG:  background worker "logical replication launcher" (PID 194619) exited with exit code 1
+2023-02-28 05:59:30.085 PST [194614] LOG:  shutting down
+2023-02-28 05:59:30.101 PST [194612] LOG:  database system is shut down
+2023-03-01 01:12:50.645 PST [2324] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-03-01 01:12:50.646 PST [2324] LOG:  listening on IPv6 address "::1", port 5432
+2023-03-01 01:12:50.646 PST [2324] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-03-01 01:12:50.648 PST [2324] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
+2023-03-01 01:12:50.652 PST [2325] LOG:  database system was shut down at 2023-02-28 05:59:30 PST
+2023-03-01 01:12:50.658 PST [2324] LOG:  database system is ready to accept connections
+2023-03-01 01:16:04.440 PST [2626] FATAL:  lock file "postmaster.pid" already exists
+2023-03-01 01:16:04.440 PST [2626] HINT:  Is another postmaster (PID 2324) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-03-01 01:42:20.335 PST [2952] FATAL:  lock file "postmaster.pid" already exists
+2023-03-01 01:42:20.335 PST [2952] HINT:  Is another postmaster (PID 2324) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-03-01 01:55:04.056 PST [2707] ERROR:  function json_set(jsonb, unknown, unknown) does not exist at character 28
+2023-03-01 01:55:04.056 PST [2707] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2023-03-01 01:55:04.056 PST [2707] STATEMENT:  UPDATE resource SET config=json_set(resource.config, '$.JsonAttribute', 'Duck') WHERE resource.id = 1
+2023-03-01 02:11:58.523 PST [2707] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2023-03-01 02:11:58.523 PST [2707] STATEMENT:  UPDATE resource SET config=json_set(resource.config, '$.JsonAttribute', 'Duck') WHERE resource.id = 1
+2023-03-01 02:14:41.670 PST [3219] FATAL:  database ".tmp/db" does not exist
+2023-03-01 02:17:08.391 PST [3319] ERROR:  function json_set(jsonb, unknown, unknown) does not exist at character 28
+2023-03-01 02:17:08.391 PST [3319] HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+2023-03-01 02:17:08.391 PST [3319] STATEMENT:  UPDATE resource SET config=json_set(resource.config, '$.JsonAttribute', 'Duck') WHERE resource.id = 1
+2023-03-01 02:18:20.427 PST [3319] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2023-03-01 02:18:20.427 PST [3319] STATEMENT:  UPDATE resource SET config=JSON_SET(resource.config, '$.JsonAttribute', 'Duck') WHERE resource.id = 1
+2023-03-01 02:20:59.184 PST [3319] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2023-03-01 02:20:59.184 PST [3319] STATEMENT:  UPDATE resource SET config=JSON_SET(resource.config, '$.family', 'Duck') WHERE resource.id = 6
+2023-03-01 02:31:53.467 PST [2324] LOG:  received fast shutdown request
+2023-03-01 02:31:53.468 PST [2324] LOG:  aborting any active transactions
+2023-03-01 02:31:53.470 PST [2324] LOG:  background worker "logical replication launcher" (PID 2331) exited with exit code 1
+2023-03-01 02:31:53.470 PST [2326] LOG:  shutting down
+2023-03-01 02:31:53.480 PST [2324] LOG:  database system is shut down
+2023-03-01 02:31:53.610 PST [3405] LOG:  starting PostgreSQL 14.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 11.3.0, 64-bit
+2023-03-01 02:31:53.611 PST [3405] LOG:  listening on IPv6 address "::1", port 5432
+2023-03-01 02:31:53.611 PST [3405] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2023-03-01 02:31:53.612 PST [3405] LOG:  listening on Unix socket "/home/dominikb1888/fohispital/.s.PGSQL.5432"
+2023-03-01 02:31:53.615 PST [3406] LOG:  database system was shut down at 2023-03-01 02:31:53 PST
+2023-03-01 02:31:53.620 PST [3405] LOG:  database system is ready to accept connections
+2023-03-01 02:48:22.366 PST [4750] ERROR:  relation "document" does not exist at character 50
+2023-03-01 02:48:22.366 PST [4750] STATEMENT:  SELECT document.config -> 'name' AS anon_1 
+	FROM document
+2023-03-01 02:48:48.357 PST [4750] ERROR:  current transaction is aborted, commands ignored until end of transaction block
+2023-03-01 02:48:48.357 PST [4750] STATEMENT:  SELECT resource.config -> 'name' AS anon_1 
+	FROM resource
+2023-03-01 23:09:24.715 PST [5665] FATAL:  lock file "postmaster.pid" already exists
+2023-03-01 23:09:24.715 PST [5665] HINT:  Is another postmaster (PID 3405) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-03-01 23:16:24.127 PST [4750] LOG:  unexpected EOF on client connection with an open transaction
+2023-03-01 23:16:24.128 PST [5288] LOG:  could not send data to client: Broken pipe
+2023-03-01 23:16:24.128 PST [5288] FATAL:  connection to client lost

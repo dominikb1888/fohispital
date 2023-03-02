@@ -27,6 +27,20 @@ let
 
     # Database
     sqlalchemy
+    (buildPythonPackage rec {
+      pname = "sqlalchemy-json";
+      version = "0.5.0";
+      src = fetchPypi {
+        inherit pname version;
+        sha256 = "89f82420dbb6ace0228535506686536f646ee17e2f35a1a810cefbce6d75a649";
+      };
+      doCheck = false;
+      propagatedBuildInputs = [
+          sqlalchemy
+          six
+      ];})
+
+
     psycopg2
     # (
     # buildPythonPackage rec {
