@@ -137,3 +137,7 @@
 2023-03-01 23:16:24.127 PST [4750] LOG:  unexpected EOF on client connection with an open transaction
 2023-03-01 23:16:24.128 PST [5288] LOG:  could not send data to client: Broken pipe
 2023-03-01 23:16:24.128 PST [5288] FATAL:  connection to client lost
+2023-03-02 04:34:18.912 PST [9164] FATAL:  lock file "postmaster.pid" already exists
+2023-03-02 04:34:18.912 PST [9164] HINT:  Is another postmaster (PID 3405) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-03-02 04:58:23.554 PST [10369] FATAL:  lock file "postmaster.pid" already exists
+2023-03-02 04:58:23.554 PST [10369] HINT:  Is another postmaster (PID 3405) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?

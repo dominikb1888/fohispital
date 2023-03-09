@@ -1,20 +1,38 @@
-from fastapi import FastAPI
-from app.routers import patients
+from typing import Any
+
+from fastapi import Depends, FastAPI, HTTPException
+from sqlalchemy.orm import Session
+
+from . import crud, models, schemas
+from .routers import patients
+from .database import SessionLocal, engine
 
 from fhir.resources import construct_fhir_element
 
-from typing import Any
+
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+
+
+# Dependency
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
 app.include_router(patients.router)
 
 
 @app.get("/")
-async def root():
-    return {"message": "POST any FHIR resource to test if it is valid and store it here"}
+async def get_resources(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
+    return crud.get_resources(db)
 
 @app.post("/")
-async def fhir_dump(resource: dict) -> Any:
-    result = construct_fhir_element(resource["resourceType"], resource)
+async def add_resources(resource: dict, db:  Session = Depends(get_db)) -> Any:
+    fhir_resource = construct_fhir_element(resource["resourceType"], resource)
 
-    return result
+    return crud.create_resource(db, fhir_resource)
