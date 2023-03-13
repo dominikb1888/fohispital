@@ -141,3 +141,5 @@
 2023-03-02 04:34:18.912 PST [9164] HINT:  Is another postmaster (PID 3405) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
 2023-03-02 04:58:23.554 PST [10369] FATAL:  lock file "postmaster.pid" already exists
 2023-03-02 04:58:23.554 PST [10369] HINT:  Is another postmaster (PID 3405) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
+2023-03-13 09:04:01.922 PDT [90556] FATAL:  lock file "postmaster.pid" already exists
+2023-03-13 09:04:01.922 PDT [90556] HINT:  Is another postmaster (PID 3405) running in data directory "/home/dominikb1888/fohispital/.tmp/db"?
