@@ -6,15 +6,15 @@
 
 Install FASTapi and uvicorn by running. (Be aware that this is a global install. We will look at better methods next time):
 
-´´´
-pip install fastapi uvicorn
-´´´
+```
+pip install fastapi uvicorn[standard]
+```
 
 Run the server by typing:
 
-´´´
+```
 uvicorn main:app --reload
-´´´
+```
 
 This will start a uvicorn server that looks for a FASTapi object called 'app' in the file main.py in the same directory.
 
