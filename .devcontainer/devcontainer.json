@@ -12,7 +12,16 @@
 			// Options
 			"NODE_VERSION": "none"
 		},
-  },
+  	},
 	// Use 'postCreateCommand' to run commands after the container is created.
- "postCreateCommand": "pip3 install --user -r requirements.txt && uvicorn main:app",
+ 	"postCreateCommand": "pip3 install --user -r requirements.txt",
+ 	"postAttachCommand": {
+    		"server": "uvicorn main:app"
+  	},
+  	"portsAttributes": {
+    		"8000": {
+      			"label": "Application",
+      			"onAutoForward": "openPreview"
+    		}
+  	},
 }
