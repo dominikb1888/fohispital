@@ -15,7 +15,7 @@ router = APIRouter()
 
 def load_patients():
     patients = []
-    for root, dirs, files in os.walk(".", topdown=False):
+    for root, dirs, files in os.walk("./app/routers", topdown=False):
         for name in files:
              if name.endswith(".json"):
                  with open(os.path.join(root, name)) as f:
