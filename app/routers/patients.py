@@ -12,6 +12,13 @@ from pydantic import BaseModel, ValidationError
 router = APIRouter()
 
 
+# Currently we load everything from the file system. Let's change that.
+# A Database brings which advantages?
+# (1) -> Let's ask ChatGPT and discuss a strategy for our app :-)
+
+# (2) -> Let's take a look at different database systems and form groups to implement them. # Fork the main repo for this and bring a PR back
+
+
 
 def load_patients():
     patients = []
