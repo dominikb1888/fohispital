@@ -16,6 +16,12 @@ router = APIRouter()
 # A Database brings which advantages?
 # (1) -> Let's ask ChatGPT and discuss a strategy for our app :-)
 
+# Data Integrity: A database provides mechanisms to ensure data integrity, such as enforcing constraints, and transaction management to ensure that data is consistent and reliable. A file system can also ensure data integrity through checksums, but a database system can provide a higher level of reliability.
+#
+# Querying and Indexing: A database allows you to query and index data, making it easier and faster to retrieve information. File systems typically do not provide these features, making it harder to search for and retrieve specific information.
+#
+# # Concurrency Control: A database system can handle concurrent access to data by multiple users, ensuring that data is not corrupted or lost due to simultaneous access. File syst
+#
 # (2) -> Let's take a look at different database systems and form groups to implement them. # Fork the main repo for this and bring a PR back
 
 

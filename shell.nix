@@ -7,6 +7,7 @@ let
     jupyter
     fastapi
     uvicorn
+    redis
 
     (
     buildPythonPackage rec {
@@ -29,6 +30,7 @@ let
 in pkgs.mkShell {
   buildInputs = with pkgs; [
     pythonEnv
+    redis
     # keep this line if you use bash
     pkgs.bashInteractive
   ];
