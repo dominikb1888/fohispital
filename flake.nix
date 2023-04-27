@@ -19,6 +19,15 @@
         # Runtime package
         packages.app = poetry2nix.mkPoetryApplication {
           projectDir = ./.;
+          overrides = poetry2nix.defaultPoetryOverrides.extend
+          (self: super: {
+            fhir-resources = super.fhir-resources.overridePythonAttrs
+            (
+              old: {
+                buildInputs = (old.buildInputs or [ ]) ++ [ super.setuptools ];
+              }
+              );
+            });
         };
 
         # The default package when a specific package name isn't specified.

@@ -9,8 +9,9 @@ packages = [{include = "app"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.95.1"
-"fhir.resources" = "^7.0.0"
 uvicorn = "^0.21.1"
+gunicorn = "^20.1.0"
+fhir-resources = "^7.0.0"
 
 [tool.poetry.scripts]
 app = 'app.main:app'
