@@ -29,6 +29,7 @@ let
 in pkgs.mkShell {
   buildInputs = with pkgs; [
     pythonEnv
+    poetry
     # keep this line if you use bash
     pkgs.bashInteractive
   ];
