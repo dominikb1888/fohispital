@@ -4,12 +4,16 @@ version = "0.1.0"
 description = ""
 authors = ["Dominik Boehler <dominik.boehler@gmx.net>"]
 readme = "README.md"
+packages = [{include = "app"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 fastapi = "^0.95.1"
 "fhir.resources" = "^7.0.0"
+uvicorn = "^0.21.1"
 
+[tool.poetry.scripts]
+app = 'app.main:app'
 
 [build-system]
 requires = ["poetry-core"]
