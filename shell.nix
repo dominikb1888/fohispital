@@ -12,15 +12,16 @@ let
     (
     buildPythonPackage rec {
       pname = "fhir.resources";
-      version = "6.5.0";
+      version = "7.0.0";
       src = fetchPypi {
         inherit pname version;
-        sha256 = "1d02ff2547e5b6323543c8ce9916e0c9e5536847b3b2171acb1f51a86efba16e";
+        sha256 = "202d443c81066e063c6f1762b18a9680750db9f4772de5183ed20f0622ac7026";
       };
       doCheck = false;
       propagatedBuildInputs = [
           pytest-runner
           pydantic
+          email-validator
       ];
     }
     )

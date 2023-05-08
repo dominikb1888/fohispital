@@ -18,12 +18,12 @@ def load_related_persons():
 
 # READ
 @router.get("/related_persons/", tags=["related_person"], response_model=list[RelatedPersonType])
-async def read_related_persons() -> Any:
+async def read_related_person() -> Any:
     related_persons = load_related_persons()
     return related_persons
 
-@router.get("/related_persons/{related_persons_id}", tags=["related_persons"], response_model=RelatedPersonType)
-async def read_related_persons(related_person_id: str)  -> Any:
+@router.get("/related_persons/{related_persons_id}", tags=["related_person"], response_model=RelatedPersonType)
+async def read_related_person(related_person_id: str)  -> Any:
     key = f"patient:{related_person_id}"
     related_person = r.get(key)
     if related_person is None:
@@ -32,7 +32,7 @@ async def read_related_persons(related_person_id: str)  -> Any:
         return related_person.decode()
 
 # CREATE
-@router.post("/related_persons/", tags=["related_persons"], response_model=RelatedPersonType)
+@router.post("/related_persons/", tags=["related_person"], response_model=RelatedPersonType)
 async def create_related_person(patient: RelatedPersonType)  -> Any:
     # TODO: Autocreate unique id
     unique_id = 1249935 #r.execute_command('UUID')
