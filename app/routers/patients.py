@@ -8,43 +8,17 @@ from fhir.resources.fhirtypes import PatientType
 
 from typing import Any
 from pydantic import BaseModel, ValidationError
+import redis
 
 router = APIRouter()
 
-
-# Currently we load everything from the file system. Let's change that.
-# A Database brings which advantages?
-# (1) -> Let's ask ChatGPT and discuss a strategy for our app :-)
-
-# Data Integrity: A database provides mechanisms to ensure data integrity, such as enforcing constraints, and transaction management to ensure that data is consistent and reliable. A file system can also ensure data integrity through checksums, but a database system can provide a higher level of reliability.
-#
-# Querying and Indexing: A database allows you to query and index data, making it easier and faster to retrieve information. File systems typically do not provide these features, making it harder to search for and retrieve specific information.
-#
-# # Concurrency Control: A database system can handle concurrent access to data by multiple users, ensuring that data is not corrupted or lost due to simultaneous access. File syst
-#
-# (2) -> Let's take a look at different database systems and form groups to implement them. # Fork the main repo for this and bring a PR back
-
-
+r = redis.Redis(host='localhost', port=6379, db=0)
 
 def load_patients():
-    patients = []
-    for root, dirs, files in os.walk(".", topdown=False):
-        for name in files:
-             if name.endswith(".json"):
-                 with open(os.path.join(root, name)) as f:
-                     # Import as valid FHIR Resource
-                     try:
-                        print(f.name)
-                        patient = Patient.parse_file(f.name)
-                        print(" --- OK --- ")
-                        patients.append(patient)
-                     except ValidationError as e:
-                        print(e)
+    patient_ids = r.keys('patient*')
+    return [patient.decode() for patient in r.mget(patient_ids)]
 
-
-    return patients
-
-
+# READ
 @router.get("/patients/", tags=["patients"], response_model=list[PatientType])
 async def read_patients() -> Any:
     patients = load_patients()
@@ -52,16 +26,22 @@ async def read_patients() -> Any:
 
 @router.get("/patients/{patient_id}", tags=["patients"], response_model=PatientType)
 async def read_patient(patient_id: str)  -> Any:
-    patients = load_patients()
-    patient = [patient for patient in patients if patient_id == patient.id]
-    if len(patient) != 1:
+    key = f"patient:{patient_id}"
+    patient = r.get(key)
+    if patient is None:
         raise HTTPException(status_code=404, detail="Item not found")
+    else:
+        return patient.decode()
 
-    return patient[0]
-
+# CREATE
 @router.post("/patients/", tags=["patients"], response_model=PatientType)
 async def create_patient(patient: PatientType)  -> Any:
-    with open(f"app/routers/fhir_resources/{patient.id}.json", 'x', encoding='utf-8') as f:
-        json.dump(json.loads(patient.json()), f, ensure_ascii=False, indent=4)
-
+    unique_id = 1249934 #r.execute_command('UUID')
+    patient.id = unique_id # does this data conform to FHIR?
+    redis_key = f"patient:{unique_id}"
+    r.set(redis_key, patient)
     return patient
+
+# UPDATE
+
+# DELETE
