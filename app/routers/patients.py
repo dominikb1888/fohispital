@@ -8,11 +8,9 @@ from fhir.resources.fhirtypes import PatientType
 
 from typing import Any
 from pydantic import BaseModel, ValidationError
-import redis
+from database import r
 
 router = APIRouter()
-
-r = redis.Redis(host='localhost', port=6379, db=0)
 
 def load_patients():
     patient_ids = r.keys('patient*')
@@ -36,6 +34,7 @@ async def read_patient(patient_id: str)  -> Any:
 # CREATE
 @router.post("/patients/", tags=["patients"], response_model=PatientType)
 async def create_patient(patient: PatientType)  -> Any:
+    # TODO: Autocreate unique id
     unique_id = 1249934 #r.execute_command('UUID')
     patient.id = unique_id # does this data conform to FHIR?
     redis_key = f"patient:{unique_id}"
