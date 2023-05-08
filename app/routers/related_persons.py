@@ -3,26 +3,26 @@ import json
 
 from fastapi import APIRouter, HTTPException
 
-from fhir.resources.related_person import RelatedPerson
+from fhir.resources.relatedperson import RelatedPerson
 from fhir.resources.fhirtypes import RelatedPersonType
 
 from typing import Any
 from pydantic import BaseModel, ValidationError
-from database import r
+from .database import r
 
 router = APIRouter()
 
-def load_related_person():
+def load_related_persons():
     related_person_ids = r.keys('related_person*')
     return [patient.decode() for patient in r.mget(related_person_ids)]
 
 # READ
-@router.get("/related_person/", tags=["related_person"], response_model=list[RelatedPersonType])
+@router.get("/related_persons/", tags=["related_person"], response_model=list[RelatedPersonType])
 async def read_related_persons() -> Any:
     related_persons = load_related_persons()
     return related_persons
 
-@router.get("/related_persons/{patient_id}", tags=["related_persons"], response_model=RelatedPersonType)
+@router.get("/related_persons/{related_persons_id}", tags=["related_persons"], response_model=RelatedPersonType)
 async def read_related_persons(related_person_id: str)  -> Any:
     key = f"patient:{related_person_id}"
     related_person = r.get(key)

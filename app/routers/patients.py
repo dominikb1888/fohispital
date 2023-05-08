@@ -8,7 +8,7 @@ from fhir.resources.fhirtypes import PatientType
 
 from typing import Any
 from pydantic import BaseModel, ValidationError
-from database import r
+from .database import r
 
 router = APIRouter()
 
