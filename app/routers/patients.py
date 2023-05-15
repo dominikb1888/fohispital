@@ -14,7 +14,8 @@ router = APIRouter()
 
 def load_patients():
     patient_ids = r.keys('patient*')
-    return [patient.decode() for patient in r.mget(patient_ids)]
+    patients = r.mget(patient_ids)
+    return [patient.decode() for patient in patients if patient is not None]
 
 # READ
 @router.get("/patients/", tags=["patients"], response_model=list[PatientType])
