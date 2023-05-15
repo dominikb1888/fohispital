@@ -31,6 +31,12 @@ async def read_patient(patient_id: str)  -> Any:
     else:
         return patient.decode()
 
+@router.get("/patients/{patient_id}/related_persons", tags=["patients"], response_model=PatientType)
+async def read_patient(patient_id: str)  -> Any:
+    # TODO: How could we show all related persons connect to a specific patient ID here:
+    # 1. Research how to relate FHIR resources and specificall patients and related_persons
+    # 2. How to query such a relation in Redis? Is there a way to do this with redis directly OR do we need to write Python code (probably more straighforward...)?
+    pass
 # CREATE
 @router.post("/patients/", tags=["patients"], response_model=PatientType)
 async def create_patient(patient: PatientType)  -> Any:
